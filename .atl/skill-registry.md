@@ -26,6 +26,8 @@ Last updated: 2026-06-09
 
 | Skill | Trigger / description | Scope | Path |
 | --- | --- | --- | --- |
+| `aceternity-ui` | Trigger: aceternity, ui.aceternity, aceternity UI, aceternity component, animated component. Use Aceternity UI components via Context7 MCP documentation. | user | `/home/santiago/.config/opencode/skills/aceternity-ui/SKILL.md` |
+| `animate-ui` | Trigger: animate-ui, animated component, animated card, animated background. Install and adapt Animate UI animated React components from animate-ui.com. | user | `/home/santiago/.config/opencode/skills/animate-ui/SKILL.md` |
 | `branch-pr` | Create Gentle AI pull requests with issue-first checks. Trigger: creating, opening, or preparing PRs for review. | user | `/home/santiago/.config/opencode/skills/branch-pr/SKILL.md` |
 | `chained-pr` | Trigger: PRs over 400 lines, stacked PRs, review slices. Split oversized changes into chained PRs that protect review focus. | user | `/home/santiago/.config/opencode/skills/chained-pr/SKILL.md` |
 | `cognitive-doc-design` | Design docs that reduce cognitive load. Trigger: writing guides, READMEs, RFCs, onboarding, architecture, or review-facing docs. | user | `/home/santiago/.config/opencode/skills/cognitive-doc-design/SKILL.md` |

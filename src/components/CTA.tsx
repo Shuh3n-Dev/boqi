@@ -1,9 +1,12 @@
 import { motion } from "framer-motion"
+import { SectionBackground } from "@/components/ui/section-background"
 
 export default function CTA() {
   return (
-    <section className="w-full px-gutter py-xl">
-      <div className="wrapper">
+    <section className="w-full px-gutter py-xl relative overflow-hidden">
+      <SectionBackground variant="cool" />
+
+      <div className="wrapper relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}

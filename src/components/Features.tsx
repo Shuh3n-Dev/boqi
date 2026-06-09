@@ -1,12 +1,13 @@
 import { motion } from "framer-motion"
+import { SectionBackground } from "@/components/ui/section-background"
 
 const features = [
   {
     colSpan: "md:col-span-8",
-    bg: "bg-white border border-outline-variant hover:bg-gradient-to-br hover:from-white hover:to-accent-light/30",
+    bg: "bg-white border border-outline-variant",
     textColor: "",
     icon: "touch_app",
-    iconColor: "bg-accent/10 text-accent",
+    iconColor: "bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white",
     title: "Adiós a la Fricción del Cliente",
     description:
       "Elimine las barreras entre su servicio y sus usuarios. Interfaces diseñadas para la conversión inmediata sin pasos innecesarios.",
@@ -27,10 +28,10 @@ const features = [
   },
   {
     colSpan: "md:col-span-4",
-    bg: "bg-white border border-outline-variant hover:bg-gradient-to-br hover:from-white hover:to-success-light/30",
+    bg: "bg-white border border-outline-variant",
     textColor: "",
     icon: "event_available",
-    iconColor: "bg-success/10 text-success",
+    iconColor: "bg-success/10 text-success group-hover:bg-success group-hover:text-white",
     title: "Automatización de Citas",
     description:
       "IA conversacional que agenda, confirma y recuerda citas de manera autónoma 24/7.",
@@ -39,10 +40,10 @@ const features = [
   },
   {
     colSpan: "md:col-span-8",
-    bg: "bg-white border border-outline-variant hover:bg-gradient-to-br hover:from-white hover:to-info-light/30",
+    bg: "bg-white border border-outline-variant",
     textColor: "",
     icon: "query_stats",
-    iconColor: "bg-info/10 text-info",
+    iconColor: "bg-info/10 text-info group-hover:bg-info group-hover:text-white",
     title: "Reportería en Tiempo Real",
     description:
       "Datos precisos para decisiones estratégicas. Visualice el rendimiento de su negocio al instante.",
@@ -72,16 +73,26 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
   const isHero = feature.isHero
   const cardClass = isHero
     ? feature.bg
-    : "bg-white border border-outline-variant rounded-lg overflow-hidden hover:shadow-sm hover:border-primary-container/30"
+    : "bg-white border border-outline-variant rounded-lg overflow-hidden"
 
   return (
     <motion.div
       variants={itemAnim}
-      className={`col-span-full ${feature.colSpan} ${cardClass} px-lg py-xl flex flex-col justify-center items-center text-center transition-all duration-300 group`}
+      className={`col-span-full ${feature.colSpan} ${cardClass} px-lg py-xl flex flex-col justify-center items-center text-center transition-all duration-500 group relative`}
     >
-      <div className="w-full">
+      {/* Card glow on hover (CSS-only) */}
+      {!isHero && (
+        <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-accent/[0.02] to-transparent rounded-lg" />
+          <div className="absolute -top-px left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        </div>
+      )}
+
+      <div className="relative z-10 w-full">
         <div className="space-y-md flex flex-col items-center">
-          <div className={`w-11 h-11 rounded-lg flex items-center justify-center ${feature.iconColor}`}>
+          <div
+            className={`w-11 h-11 rounded-lg flex items-center justify-center transition-all duration-500 ${feature.iconColor}`}
+          >
             <span className="material-symbols-outlined text-2xl">
               {feature.icon}
             </span>
@@ -120,8 +131,11 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
 
 export default function Features() {
   return (
-    <section className="w-full px-gutter mb-xl scroll-mt-24" id="features">
-      <div className="wrapper">
+    <section className="w-full px-gutter mb-xl scroll-mt-24 relative overflow-hidden" id="features">
+      {/* Fondo animado sutíl (CSS-only) */}
+      <SectionBackground variant="subtle" />
+
+      <div className="wrapper relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}

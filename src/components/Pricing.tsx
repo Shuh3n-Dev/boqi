@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { SectionBackground } from "@/components/ui/section-background"
 
 const plans = [
   {
@@ -74,10 +75,12 @@ const cardAnim = {
 export default function Pricing() {
   return (
     <section
-      className="w-full bg-gradient-to-b from-surface-container-lowest to-surface-container/50 border-y border-outline-variant/60 py-xl scroll-mt-24"
+      className="w-full bg-gradient-to-b from-surface-container-lowest to-surface-container/50 border-y border-outline-variant/60 py-xl scroll-mt-24 relative overflow-hidden"
       id="pricing"
     >
-      <div className="wrapper">
+      <SectionBackground variant="default" />
+
+      <div className="wrapper relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -106,7 +109,7 @@ export default function Pricing() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-60px" }}
-              className={`bg-white rounded-none border-0 ${plan.badge} px-lg py-lg flex flex-col justify-between relative`}
+              className={`bg-white rounded-none border-0 ${plan.badge} px-lg py-lg flex flex-col justify-between relative group hover:bg-gradient-to-b hover:from-white hover:to-surface-container-low/50 transition-all duration-500`}
             >
               {plan.popular && (
                 <div className="absolute top-0 right-0 bg-accent text-white text-[10px] px-sm py-1 font-bold rounded-bl z-10">

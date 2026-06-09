@@ -10,8 +10,7 @@ const plans = [
     features: ["Hasta 2 cuentas", "Soporte básico", "Agendamiento standard"],
     cta: "Seleccionar Plan",
     primary: false,
-    bg: "bg-white",
-    badge: "border-l-4 border-l-accent",
+    badge: "border-l-accent",
   },
   {
     name: "PRO",
@@ -27,8 +26,7 @@ const plans = [
     ],
     cta: "Seleccionar Plan",
     primary: true,
-    bg: "bg-white",
-    badge: "",
+    badge: "border-l-primary",
   },
   {
     name: "CORPORATIVO",
@@ -44,8 +42,7 @@ const plans = [
     ],
     cta: "Seleccionar Plan",
     primary: false,
-    bg: "bg-white",
-    badge: "border-l-4 border-l-info",
+    badge: "border-l-info",
   },
   {
     name: "ENTERPRISE",
@@ -61,8 +58,7 @@ const plans = [
     ],
     cta: "Contactar Ventas",
     primary: false,
-    bg: "bg-surface-container-low",
-    badge: "",
+    badge: "border-l-accent",
   },
 ]
 
@@ -89,10 +85,13 @@ export default function Pricing() {
           transition={{ duration: 0.5 }}
           className="text-center mb-lg"
         >
-          <h2 className="text-headline-md text-headline-md text-primary mb-sm">
-            Planes de Inversión
-          </h2>
-          <p className="text-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">
+          <div className="inline-flex items-center gap-md mb-sm">
+            <div className="w-1 h-8 bg-accent rounded-full" />
+            <h2 className="text-headline-md text-primary">
+              Planes de Inversión
+            </h2>
+          </div>
+          <p className="text-body-md text-on-surface-variant max-w-xl mx-auto">
             Escalabilidad diseñada para el crecimiento de su consultoría o
             clínica. Elija el plan que mejor se adapte a sus necesidades.
           </p>
@@ -107,22 +106,22 @@ export default function Pricing() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-60px" }}
-              className={`${plan.bg} ${plan.badge} px-lg py-lg flex flex-col justify-between relative`}
+              className={`notebook-card rounded-none border-0 ${plan.badge} px-lg py-lg flex flex-col justify-between relative`}
             >
               {plan.popular && (
-                <div className="absolute top-0 right-0 bg-accent text-white text-[10px] px-sm py-1 font-bold rounded-bl">
+                <div className="absolute top-0 right-0 bg-accent text-white text-[10px] px-sm py-1 font-bold rounded-bl z-10">
                   RECOMENDADO
                 </div>
               )}
 
-              <div>
-                <h4 className="text-label-sm text-label-sm text-on-surface-variant mb-md uppercase tracking-wider">
+              <div className="notebook-card-body">
+                <h4 className="text-label-sm text-on-surface-variant mb-md uppercase tracking-wider">
                   {plan.name}
                 </h4>
-                <div className="text-headline-md text-headline-md mb-lg">
+                <div className="text-headline-md mb-lg">
                   {plan.price}
                   {plan.period && (
-                    <span className="text-body-sm text-body-sm font-normal text-on-surface-variant">
+                    <span className="text-body-sm font-normal text-on-surface-variant">
                       {plan.period}
                     </span>
                   )}
@@ -132,7 +131,7 @@ export default function Pricing() {
                   {plan.features.map((feat) => (
                     <li
                       key={feat}
-                      className="flex items-center gap-sm text-body-sm text-body-sm"
+                      className="flex items-center gap-sm text-body-sm"
                     >
                       <span className="material-symbols-outlined text-success text-sm">
                         check_circle
@@ -158,7 +157,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <p className="text-center text-body-sm text-body-sm text-on-surface-variant/60 mt-md">
+        <p className="text-center text-body-sm text-on-surface-variant/60 mt-md">
           Todos los planes incluyen 14 días de prueba gratuita. Sin compromiso.
         </p>
       </div>

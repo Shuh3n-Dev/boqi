@@ -9,21 +9,24 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative overflow-hidden rounded-lg px-lg py-xl flex flex-col items-center space-y-md text-center"
+          className="notebook-card overflow-hidden"
         >
-          {/* Gradient background */}
+          {/* Gradient background (inside the card) */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-container to-primary" />
           <div className="absolute top-[-100px] right-[-50px] w-[300px] h-[300px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
           <div className="absolute bottom-[-80px] left-[-50px] w-[250px] h-[250px] rounded-full bg-white/5 blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col items-center space-y-md">
-            <span className="text-label-sm text-label-sm uppercase tracking-widest bg-white/10 text-white/80 px-sm py-xs rounded">
-              Comience hoy
-            </span>
-            <h2 className="text-headline-md text-headline-md text-white">
+          <div className="relative z-10 notebook-card-body flex flex-col items-center space-y-md text-center px-lg py-xl">
+            {/* Washi tape accent */}
+            <div className="washi-tape">
+              <span className="text-label-sm uppercase tracking-widest bg-white/10 text-white/80 px-sm py-xs rounded">
+                Comience hoy
+              </span>
+            </div>
+            <h2 className="text-headline-md text-white">
               ¿Listo para transformar su operativa?
             </h2>
-            <p className="max-w-xl text-white/70 text-body-lg text-body-lg">
+            <p className="max-w-xl text-white/70 text-body-lg">
               Únase a las empresas que ya están optimizando su gestión con Boqi.
               Comience su demostración hoy.
             </p>

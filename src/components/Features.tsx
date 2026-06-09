@@ -69,7 +69,8 @@ const itemAnim = {
 }
 
 function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
-  const cardClass = feature.isHero
+  const isHero = feature.isHero
+  const cardClass = isHero
     ? feature.bg
     : "notebook-card hover:shadow-sm hover:border-primary-container/30"
 
@@ -78,46 +79,44 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
       variants={itemAnim}
       className={`col-span-full ${feature.colSpan} ${cardClass} px-lg py-xl flex flex-col justify-between transition-all duration-300 group`}
     >
-      <div className="notebook-card-body">
-        <div
-          className={`w-11 h-11 rounded-lg flex items-center justify-center mb-md ${feature.iconColor}`}
-        >
-          <span className="material-symbols-outlined text-2xl">
-            {feature.icon}
-          </span>
-        </div>
-        <h3 className="text-headline-sm mb-sm">
-          {feature.title}
-        </h3>
-        <p
-          className={`text-body-md text-on-surface-variant max-w-lg leading-relaxed ${feature.textColor}`}
-        >
-          {feature.description}
-        </p>
-      </div>
-
-      <div className="flex items-end justify-between mt-lg pt-md border-t border-outline-variant/30 notebook-card-body">
-        {feature.link && (
-          <span className="text-body-sm text-on-surface-variant/60 flex items-center gap-sm group-hover:text-accent transition-colors">
-            Saber más
-            <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
-              east
+      <div className={isHero ? "" : "notebook-card-body has-redline"}>
+        <div className={isHero ? "space-y-md" : "notebook-col space-y-md"}>
+          <div
+            className={`w-11 h-11 rounded-lg flex items-center justify-center ${feature.iconColor}`}
+          >
+            <span className="material-symbols-outlined text-2xl">
+              {feature.icon}
             </span>
-          </span>
-        )}
-
-        {feature.chart && (
-          <div className="w-full md:w-1/2 bg-surface-container-low rounded p-sm border border-outline-variant/50 overflow-hidden">
-            <div className="space-y-sm">
-              <div className="h-2 w-3/4 bg-surface-container-highest rounded" />
-              <div className="h-2 w-1/2 bg-surface-container-highest rounded" />
-              <div className="h-2 w-full bg-primary-container/30 rounded" />
-              <div className="h-2 w-5/6 bg-accent/20 rounded" />
-            </div>
           </div>
-        )}
+          <h3 className="text-headline-sm">
+            {feature.title}
+          </h3>
+          <p
+            className={`text-body-md text-on-surface-variant max-w-lg leading-relaxed ${feature.textColor}`}
+          >
+            {feature.description}
+          </p>
 
-        {!feature.link && !feature.chart && <span />}
+          {feature.link && (
+            <span className="text-body-sm text-on-surface-variant/60 flex items-center gap-sm group-hover:text-accent transition-colors pt-sm">
+              Saber más
+              <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
+                east
+              </span>
+            </span>
+          )}
+
+          {feature.chart && (
+            <div className="w-full md:w-1/2 bg-surface-container-low rounded p-sm border border-outline-variant/50 overflow-hidden pt-sm">
+              <div className="space-y-sm">
+                <div className="h-2 w-3/4 bg-surface-container-highest rounded" />
+                <div className="h-2 w-1/2 bg-surface-container-highest rounded" />
+                <div className="h-2 w-full bg-primary-container/30 rounded" />
+                <div className="h-2 w-5/6 bg-accent/20 rounded" />
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </motion.div>
   )

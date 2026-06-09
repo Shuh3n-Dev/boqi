@@ -114,32 +114,34 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="notebook-card-body">
-                <h4 className="text-label-sm text-on-surface-variant mb-md uppercase tracking-wider">
-                  {plan.name}
-                </h4>
-                <div className="text-headline-md mb-lg">
-                  {plan.price}
-                  {plan.period && (
-                    <span className="text-body-sm font-normal text-on-surface-variant">
-                      {plan.period}
-                    </span>
-                  )}
-                </div>
-
-                <ul className="space-y-sm mb-lg">
-                  {plan.features.map((feat) => (
-                    <li
-                      key={feat}
-                      className="flex items-center gap-sm text-body-sm"
-                    >
-                      <span className="material-symbols-outlined text-success text-sm">
-                        check_circle
+              <div className="notebook-card-body has-redline">
+                <div className="notebook-col">
+                  <h4 className="text-label-sm text-on-surface-variant mb-md uppercase tracking-wider">
+                    {plan.name}
+                  </h4>
+                  <div className="text-headline-md mb-lg">
+                    {plan.price}
+                    {plan.period && (
+                      <span className="text-body-sm font-normal text-on-surface-variant">
+                        {plan.period}
                       </span>
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
+                    )}
+                  </div>
+
+                  <ul className="space-y-sm mb-lg">
+                    {plan.features.map((feat) => (
+                      <li
+                        key={feat}
+                        className="flex items-center gap-sm text-body-sm"
+                      >
+                        <span className="material-symbols-outlined text-success text-sm">
+                          check_circle
+                        </span>
+                        {feat}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               <motion.button

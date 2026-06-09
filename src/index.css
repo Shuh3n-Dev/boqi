@@ -149,6 +149,12 @@ body::before {
   background-size: 20px 20px;
 }
 
+/* ── Notebook column constants ── */
+:root {
+  --notebook-line-gap: 28px;
+  --notebook-col-offset: 48px;
+}
+
 /* ── Notebook ruled lines overlay ── */
 .notebook-bg {
   position: relative;
@@ -163,9 +169,9 @@ body::before {
   background-image: repeating-linear-gradient(
     to bottom,
     transparent 0px,
-    transparent 23px,
-    rgba(195, 197, 217, 0.15) 23px,
-    rgba(195, 197, 217, 0.15) 24px
+    transparent calc(var(--notebook-line-gap) - 1px),
+    rgba(195, 197, 217, 0.2) calc(var(--notebook-line-gap) - 1px),
+    rgba(195, 197, 217, 0.2) var(--notebook-line-gap)
   );
 }
 
@@ -183,7 +189,7 @@ body::before {
   width: 1px;
   background: linear-gradient(
     to bottom,
-    rgba(220, 38, 38, 0.3) 0%,
+    rgba(220, 38, 38, 0.35) 0%,
     rgba(220, 38, 38, 0.15) 100%
   );
   pointer-events: none;
@@ -199,6 +205,7 @@ body::before {
   overflow: hidden;
 }
 
+/* Left accent bar */
 .notebook-card::before {
   content: '';
   position: absolute;
@@ -208,11 +215,59 @@ body::before {
   width: 3px;
   background: linear-gradient(to bottom, var(--color-accent), var(--color-primary-container));
   opacity: 0.6;
+  z-index: 2;
 }
 
+/* Ruled lines inside the card */
+.notebook-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent calc(var(--notebook-line-gap) - 1px),
+    rgba(195, 197, 217, 0.2) calc(var(--notebook-line-gap) - 1px),
+    rgba(195, 197, 217, 0.2) var(--notebook-line-gap)
+  );
+  border-radius: inherit;
+}
+
+/* Content layer above ruled lines */
 .notebook-card-body {
   position: relative;
   z-index: 1;
+}
+
+/* Red margin line inside the card */
+.notebook-card-body.has-redline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 16px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(220, 38, 38, 0.3) 0%,
+    rgba(220, 38, 38, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+/* Writing column: pushes content past the red margin line */
+.notebook-col {
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+  padding-left: 28px;
+}
+
+/* Hero card (gradient) has no ruled lines */
+.notebook-card.hero-card::after {
+  display: none;
 }
 
 /* ── Washi tape accent ── */

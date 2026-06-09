@@ -73,25 +73,27 @@ export default function Testimonials() {
             <motion.div
               key={t.name}
               variants={cardAnim}
-              className="notebook-card p-lg flex flex-col gap-md hover:shadow-sm hover:border-primary-container/30 transition-all"
+              className="notebook-card p-lg hover:shadow-sm hover:border-primary-container/30 transition-all"
             >
-              <div className="notebook-card-body flex flex-col gap-md h-full">
-                <div
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${t.accent}`}
-                >
-                  <span className="material-symbols-outlined text-xl">
-                    {t.icon}
-                  </span>
-                </div>
-                <blockquote className="text-body-md text-on-surface-variant leading-relaxed flex-1">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <div className="pt-md border-t border-outline-variant/30">
-                  <div className="font-medium text-body-sm text-primary">
-                    {t.name}
+              <div className="notebook-card-body has-redline h-full">
+                <div className="notebook-col h-full gap-md flex flex-col">
+                  <div
+                    className={`w-10 h-10 rounded-lg flex items-center justify-center ${t.accent}`}
+                  >
+                    <span className="material-symbols-outlined text-xl">
+                      {t.icon}
+                    </span>
                   </div>
-                  <div className="text-body-sm text-on-surface-variant/70">
-                    {t.role}
+                  <blockquote className="text-body-md text-on-surface-variant leading-relaxed flex-1">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <div className="pt-md border-t border-outline-variant/30">
+                    <div className="font-medium text-body-sm text-primary">
+                      {t.name}
+                    </div>
+                    <div className="text-body-sm text-on-surface-variant/70">
+                      {t.role}
+                    </div>
                   </div>
                 </div>
               </div>

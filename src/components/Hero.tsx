@@ -1,4 +1,6 @@
 import { motion } from "framer-motion"
+import { LightBeams } from "@/components/ui/light-beams"
+import { Spotlight } from "@/components/ui/spotlight"
 import Navbar from "./Navbar"
 
 const container = {
@@ -56,11 +58,13 @@ export default function Hero() {
       {/* Navbar integrado en el fondo Hero */}
       <Navbar />
 
-      {/* Background gradient — expandido al 100% del viewport top */}
-      <div className="absolute inset-0 bg-primary-container/5 pointer-events-none" />
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none" />
-      <div className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] rounded-full bg-primary-container/10 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+      {/* Light Beams — efecto principal (CSS-only, GPU composited) */}
+      <LightBeams className="[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]" />
+
+      {/* Gradiente sutíl de fondo */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/8 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] rounded-full bg-primary-container/8 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full bg-accent/8 blur-3xl pointer-events-none" />
 
       {/* Decorative floating elements */}
       <motion.div
@@ -84,7 +88,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="wrapper flex flex-col items-center text-center space-y-md relative pt-[140px] md:pt-[180px]"
+        className="wrapper flex flex-col items-center text-center space-y-md relative pt-[140px] md:pt-[180px] z-10"
       >
         <motion.span
           variants={item}
@@ -101,16 +105,17 @@ export default function Hero() {
           <span className="bg-gradient-to-r from-primary via-primary-container to-accent bg-clip-text text-transparent">
             La Agenda Inteligente
           </span>{" "}
-          que Ordena tu Negocio.
+          que Transforma tu Negocio.
         </motion.h1>
 
         <motion.p
           variants={item}
           className="text-body-lg text-on-surface-variant max-w-2xl"
         >
-          Agendamiento conversacional con IA, facturación y control unificado.
-          Citas fluidas, sin fricción para usted y sus clientes — todo en un
-          solo lugar.
+          Agendamiento conversacional con IA que elimina ausencias,
+          automatiza recordatorios y centraliza tu facturación, inventario
+          y comunicación en un solo sistema. Menos fricción, más clientes
+          atendidos.
         </motion.p>
 
         <motion.div
@@ -143,8 +148,11 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-        className="mt-xl wrapper relative"
+        className="mt-xl wrapper relative z-10"
       >
+        {/* Spotlight sobre el calendar card */}
+        <Spotlight className="hidden md:block -top-40 left-0 md:left-60 h-[80%]" fill="#0052ff" />
+
         {/* Paper clip — top right */}
         <div className="absolute -top-2 -right-3 z-20 hidden md:block rotate-12">
           <svg width="28" height="40" viewBox="0 0 28 40" fill="none" xmlns="http://www.w3.org/2000/svg">

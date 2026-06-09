@@ -45,19 +45,21 @@ const cardAnim = {
 
 export default function Testimonials() {
   return (
-    <section className="w-full px-gutter mb-xl">
+    <section className="w-full px-gutter mb-xl scroll-mt-24">
       <div className="w-[70%] mx-auto max-w-[1280px]">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-lg"
+          className="mb-lg flex items-start gap-md"
         >
-          <h2 className="text-headline-md text-headline-md text-primary">
-            Lo que dicen nuestros clientes
-          </h2>
-          <div className="h-1 w-12 bg-accent mt-sm rounded" />
+          <div className="w-1 h-10 bg-accent rounded-full shrink-0 mt-1" />
+          <div>
+            <h2 className="text-headline-md text-primary">
+              Lo que dicen nuestros clientes
+            </h2>
+          </div>
         </motion.div>
 
         <motion.div
@@ -71,24 +73,26 @@ export default function Testimonials() {
             <motion.div
               key={t.name}
               variants={cardAnim}
-              className="bg-white border border-outline-variant rounded-lg p-lg flex flex-col gap-md hover:shadow-sm hover:border-primary-container/30 transition-all"
+              className="notebook-card p-lg flex flex-col gap-md hover:shadow-sm hover:border-primary-container/30 transition-all"
             >
-              <div
-                className={`w-10 h-10 rounded-lg flex items-center justify-center ${t.accent}`}
-              >
-                <span className="material-symbols-outlined text-xl">
-                  {t.icon}
-                </span>
-              </div>
-              <blockquote className="text-body-md text-body-md text-on-surface-variant leading-relaxed">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <div className="mt-auto pt-md border-t border-outline-variant/30">
-                <div className="font-medium text-body-sm text-body-sm text-primary">
-                  {t.name}
+              <div className="notebook-card-body flex flex-col gap-md h-full">
+                <div
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${t.accent}`}
+                >
+                  <span className="material-symbols-outlined text-xl">
+                    {t.icon}
+                  </span>
                 </div>
-                <div className="text-body-sm text-body-sm text-on-surface-variant/70">
-                  {t.role}
+                <blockquote className="text-body-md text-on-surface-variant leading-relaxed flex-1">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <div className="pt-md border-t border-outline-variant/30">
+                  <div className="font-medium text-body-sm text-primary">
+                    {t.name}
+                  </div>
+                  <div className="text-body-sm text-on-surface-variant/70">
+                    {t.role}
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -11,11 +11,17 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
+      <main className="pt-20 relative z-1">
         <Hero />
-        <StatsBar />
-        <Features />
-        <Testimonials />
+        <section className="notebook-bg">
+          <StatsBar />
+          <div className="notebook-margin">
+            <Features />
+          </div>
+        </section>
+        <section className="notebook-bg">
+          <Testimonials />
+        </section>
         <Pricing />
         <CTA />
       </main>

@@ -74,22 +74,24 @@ export default function StatsBar() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-outline-variant/50 rounded-lg overflow-hidden border border-outline-variant/50"
+          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-outline-variant/50 rounded-lg overflow-hidden"
         >
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
               variants={itemAnim}
-              className="bg-white p-lg md:p-xl flex flex-col items-center text-center gap-md group hover:bg-accent-light/30 transition-colors"
+              className="notebook-card rounded-none border-0 bg-white p-lg md:p-xl flex flex-col items-center text-center gap-md group"
             >
-              <span className="material-symbols-outlined text-3xl text-accent">
-                {stat.icon}
-              </span>
-              <div className="text-headline-lg text-headline-lg text-primary font-bold">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-              </div>
-              <div className="text-body-sm text-body-sm text-on-surface-variant">
-                {stat.label}
+              <div className="notebook-card-body flex flex-col items-center gap-md">
+                <span className="material-symbols-outlined text-3xl text-accent">
+                  {stat.icon}
+                </span>
+                <div className="text-headline-lg text-primary font-bold">
+                  <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                </div>
+                <div className="text-body-sm text-on-surface-variant">
+                  {stat.label}
+                </div>
               </div>
             </motion.div>
           ))}

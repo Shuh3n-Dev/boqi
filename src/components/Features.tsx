@@ -1,10 +1,9 @@
 import { motion } from "framer-motion"
-import { SectionBackground } from "@/components/ui/section-background"
 
 const features = [
   {
     colSpan: "md:col-span-8",
-    bg: "bg-white border border-outline-variant",
+    glass: true,
     textColor: "",
     icon: "touch_app",
     iconColor: "bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white",
@@ -16,7 +15,7 @@ const features = [
   },
   {
     colSpan: "md:col-span-4",
-    bg: "bg-gradient-to-br from-primary via-primary-container to-primary text-white",
+    glass: false, // hero card — solid gradient
     textColor: "text-white/75",
     icon: "hub",
     iconColor: "bg-white/20 text-white",
@@ -28,7 +27,7 @@ const features = [
   },
   {
     colSpan: "md:col-span-4",
-    bg: "bg-white border border-outline-variant",
+    glass: true,
     textColor: "",
     icon: "event_available",
     iconColor: "bg-success/10 text-success group-hover:bg-success group-hover:text-white",
@@ -40,7 +39,7 @@ const features = [
   },
   {
     colSpan: "md:col-span-8",
-    bg: "bg-white border border-outline-variant",
+    glass: true,
     textColor: "",
     icon: "query_stats",
     iconColor: "bg-info/10 text-info group-hover:bg-info group-hover:text-white",
@@ -78,8 +77,8 @@ const itemAnim = {
 function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
   const isHero = feature.isHero
   const cardClass = isHero
-    ? feature.bg
-    : "bg-white border border-outline-variant rounded-lg overflow-hidden"
+    ? "bg-gradient-to-br from-primary via-primary-container to-primary text-white shadow-lg shadow-primary/20"
+    : "bg-white/65 backdrop-blur-xl border border-white/30 shadow-lg shadow-primary-container/5 rounded-xl overflow-hidden"
 
   return (
     <motion.div
@@ -88,9 +87,9 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
     >
       {/* Card glow on hover (CSS-only) */}
       {!isHero && (
-        <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-accent/[0.02] to-transparent rounded-lg" />
-          <div className="absolute -top-px left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-accent/[0.03] to-transparent rounded-xl" />
+          <div className="absolute -top-px left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         </div>
       )}
 
@@ -120,12 +119,12 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
           )}
 
           {feature.chart && (
-            <div className="w-full md:w-1/2 bg-surface-container-low rounded p-sm border border-outline-variant/50 overflow-hidden pt-sm">
+            <div className="w-full md:w-1/2 bg-white/40 backdrop-blur-sm rounded p-sm border border-white/20 overflow-hidden pt-sm">
               <div className="space-y-sm">
-                <div className="h-2 w-3/4 bg-surface-container-highest rounded" />
-                <div className="h-2 w-1/2 bg-surface-container-highest rounded" />
-                <div className="h-2 w-full bg-primary-container/30 rounded" />
-                <div className="h-2 w-5/6 bg-accent/20 rounded" />
+                <div className="h-2 w-3/4 bg-surface-container-highest/60 rounded" />
+                <div className="h-2 w-1/2 bg-surface-container-highest/60 rounded" />
+                <div className="h-2 w-full bg-primary-container/40 rounded" />
+                <div className="h-2 w-5/6 bg-accent/30 rounded" />
               </div>
             </div>
           )}
@@ -138,10 +137,7 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
 export default function Features() {
   return (
     <section className="w-full px-gutter mb-xl scroll-mt-24 relative overflow-hidden" id="features">
-      {/* Fondo animado sutíl (CSS-only) */}
-      <SectionBackground variant="subtle" />
-
-      <div className="wrapper relative z-10">
+      <div className="wrapper">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}

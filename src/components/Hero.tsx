@@ -54,7 +54,7 @@ const appointments = [
 
 export default function Hero() {
   return (
-    <section className="w-full px-gutter pb-[80px] pt-0 relative overflow-hidden">
+    <section className="w-full px-gutter pb-[140px] pt-0 relative overflow-hidden">
       {/* Navbar integrado en el fondo Hero */}
       <Navbar />
 

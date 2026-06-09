@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-import { SectionBackground } from "@/components/ui/section-background"
 
 const plans = [
   {
@@ -11,7 +10,7 @@ const plans = [
     features: ["Hasta 2 cuentas", "Soporte básico", "Agendamiento standard"],
     cta: "Seleccionar Plan",
     primary: false,
-    badge: "border-l-accent",
+    accent: "border-l-accent",
   },
   {
     name: "PRO",
@@ -27,7 +26,7 @@ const plans = [
     ],
     cta: "Seleccionar Plan",
     primary: true,
-    badge: "border-l-primary",
+    accent: "border-l-primary",
   },
   {
     name: "CORPORATIVO",
@@ -43,7 +42,7 @@ const plans = [
     ],
     cta: "Seleccionar Plan",
     primary: false,
-    badge: "border-l-info",
+    accent: "border-l-info",
   },
   {
     name: "ENTERPRISE",
@@ -59,7 +58,7 @@ const plans = [
     ],
     cta: "Contactar Ventas",
     primary: false,
-    badge: "border-l-accent",
+    accent: "border-l-accent",
   },
 ]
 
@@ -82,12 +81,10 @@ const cardAnim = {
 export default function Pricing() {
   return (
     <section
-      className="w-full bg-gradient-to-b from-surface-container-lowest to-surface-container/50 border-y border-outline-variant/60 py-xl scroll-mt-24 relative overflow-hidden"
+      className="w-full px-gutter mb-xl scroll-mt-24 relative"
       id="pricing"
     >
-      <SectionBackground variant="default" />
-
-      <div className="wrapper relative z-10">
+      <div className="wrapper">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +113,7 @@ export default function Pricing() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.1, margin: "-50px" }}
-              className={`card-tilt bg-white rounded-none border-0 ${plan.badge} px-lg py-lg flex flex-col justify-between relative group hover:bg-gradient-to-b hover:from-white hover:to-surface-container-low/50 transition-all duration-500 ${plan.popular ? "shadow-lg shadow-primary-container/20 ring-1 ring-primary/20" : "shadow-sm"}`}
+              className={`card-tilt bg-white/65 backdrop-blur-xl border border-white/30 shadow-lg shadow-primary-container/5 rounded-xl px-lg py-lg flex flex-col justify-between relative group hover:bg-white/80 hover:shadow-xl hover:shadow-primary-container/10 transition-all duration-500 ${plan.popular ? "ring-1 ring-primary/20" : ""} ${plan.accent} border-l-[3px]`}
             >
               {plan.popular && (
                 <motion.div

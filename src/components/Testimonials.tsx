@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-import { SectionBackground } from "@/components/ui/section-background"
 
 const testimonials = [
   {
@@ -52,10 +51,8 @@ const cardAnim = {
 
 export default function Testimonials() {
   return (
-    <section className="w-full px-gutter mb-xl scroll-mt-24 relative overflow-hidden">
-      <SectionBackground variant="warm" />
-
-      <div className="wrapper relative z-10">
+    <section className="w-full px-gutter mb-xl scroll-mt-24 relative">
+      <div className="wrapper">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -82,12 +79,12 @@ export default function Testimonials() {
             <motion.div
               key={t.name}
               variants={cardAnim}
-              className="card-tilt bg-white border border-outline-variant rounded-lg overflow-hidden p-lg hover:shadow-md hover:border-primary-container/40 hover:-translate-y-1 transition-all duration-500 group relative"
+              className="card-tilt bg-white/65 backdrop-blur-xl border border-white/30 shadow-lg shadow-primary-container/5 rounded-xl overflow-hidden p-lg hover:bg-white/80 hover:shadow-xl hover:shadow-primary-container/10 hover:-translate-y-1 transition-all duration-500 group relative"
             >
               {/* Card glow on hover */}
-              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-accent/[0.02] to-transparent rounded-lg" />
-                <div className="absolute -top-px left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-accent/[0.03] to-transparent rounded-xl" />
+                <div className="absolute -top-px left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
               </div>
 
               <div className="h-full relative z-10">

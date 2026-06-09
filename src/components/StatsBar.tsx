@@ -51,36 +51,41 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 const container = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.12 },
   },
 }
 
 const itemAnim = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  hidden: { opacity: 0, y: 40, scale: 0.93 },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" as const },
+    transition: {
+      type: "spring" as const,
+      stiffness: 100,
+      damping: 18,
+      mass: 0.8,
+    },
   },
 }
 
 export default function StatsBar() {
   return (
-    <section className="w-full px-gutter mb-xl">
+    <section className="w-full px-gutter mb-xl relative">
       <div className="wrapper">
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-outline-variant/50 rounded-lg overflow-hidden"
+          viewport={{ once: true, amount: 0.15, margin: "-60px" }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-md"
         >
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
               variants={itemAnim}
-              className="bg-white p-lg md:p-xl flex flex-col items-center text-center gap-md group"
+              className="card-tilt bg-white/65 backdrop-blur-xl border border-white/30 shadow-lg shadow-primary-container/5 rounded-xl p-lg md:p-xl flex flex-col items-center text-center gap-md group hover:bg-white/80 hover:shadow-xl hover:shadow-primary-container/10 hover:-translate-y-1 transition-all duration-500"
             >
               <div>
                 <div className="flex flex-col items-center text-center gap-md">

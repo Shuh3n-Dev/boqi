@@ -304,6 +304,19 @@ body::before {
 }
 
 /* ── Custom grid layouts ── */
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    width: 70%;
+  }
+}
+
 .bento-grid {
   display: grid;
   grid-template-columns: 1fr;

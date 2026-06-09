@@ -91,7 +91,7 @@ export default function Pricing() {
               Planes de Inversión
             </h2>
           </div>
-          <p className="text-body-md text-on-surface-variant max-w-xl mx-auto">
+          <p className="text-body-md text-on-surface-variant w-full max-w-[700px] mx-auto">
             Escalabilidad diseñada para el crecimiento de su consultoría o
             clínica. Elija el plan que mejor se adapte a sus necesidades.
           </p>

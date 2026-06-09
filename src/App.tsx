@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import StatsBar from "./components/StatsBar"
 import Features from "./components/Features"
@@ -10,16 +9,13 @@ import Footer from "./components/Footer"
 function App() {
   return (
     <>
-      <Navbar />
-      <main className="pt-20 relative z-1">
+      <main className="relative z-1">
         <Hero />
-        <section className="notebook-bg">
+        <section>
           <StatsBar />
-          <div className="notebook-margin">
-            <Features />
-          </div>
+          <Features />
         </section>
-        <section className="notebook-bg">
+        <section>
           <Testimonials />
         </section>
         <Pricing />

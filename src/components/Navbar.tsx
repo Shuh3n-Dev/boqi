@@ -29,7 +29,7 @@ export default function Navbar() {
           "mx-auto mt-sm md:mt-md transition-all duration-300 rounded-full border " +
           (scrolled
             ? "w-full md:w-[70%] max-w-[720px] bg-white/85 backdrop-blur-lg border-outline-variant/70 shadow-sm"
-            : "w-full md:w-[70%] max-w-[720px] bg-white/70 backdrop-blur-md border-transparent")
+            : "w-full md:w-[70%] max-w-[720px] bg-transparent backdrop-blur-none border-transparent")
         }
       >
         <div className="flex items-center justify-between px-md md:px-lg h-14 md:h-16">

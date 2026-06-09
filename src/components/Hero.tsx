@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import Navbar from "./Navbar"
 
 const container = {
   hidden: {},
@@ -51,11 +52,15 @@ const appointments = [
 
 export default function Hero() {
   return (
-    <section className="w-full px-gutter mb-xl pt-8 md:pt-0 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary-container/5 via-transparent to-transparent pointer-events-none" />
-      <div className="absolute top-[-200px] right-[-100px] w-[500px] h-[500px] rounded-full bg-primary-container/5 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-[-100px] left-[-100px] w-[400px] h-[400px] rounded-full bg-accent/5 blur-3xl pointer-events-none" />
+    <section className="w-full px-gutter pb-[80px] pt-0 relative overflow-hidden">
+      {/* Navbar integrado en el fondo Hero */}
+      <Navbar />
+
+      {/* Background gradient — expandido al 100% del viewport top */}
+      <div className="absolute inset-0 bg-primary-container/5 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] rounded-full bg-primary-container/10 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
       {/* Decorative floating elements */}
       <motion.div
@@ -79,7 +84,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="w-full mx-auto max-w-[1280px] flex flex-col items-center text-center space-y-md relative"
+        className="w-full mx-auto max-w-[1280px] flex flex-col items-center text-center space-y-md relative pt-[140px] md:pt-[180px]"
       >
         <motion.span
           variants={item}
@@ -174,8 +179,17 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="bg-white border border-outline-variant rounded-lg overflow-hidden">
-          <div>
+        {/* Floating phone icon — bottom left */}
+        <motion.div
+          {...floatAnimation}
+          className="absolute -bottom-3 -left-4 z-20 hidden md:flex items-center gap-1 bg-white/95 backdrop-blur-sm rounded-full border border-outline-variant/50 px-sm py-1 shadow-sm"
+        >
+          <span className="material-symbols-outlined text-sm text-accent">phone_iphone</span>
+          <span className="text-[10px] text-on-surface-variant font-medium">App</span>
+        </motion.div>
+
+        <div className="bg-white border border-outline-variant rounded-lg shadow-xl shadow-primary-container/10 overflow-visible">
+          <div className="p-4 md:p-6 lg:p-8">
             {/* Mockup browser chrome */}
             <div className="flex items-center gap-sm mb-md pb-md border-b border-outline-variant/30">
               <div className="flex gap-[5px]">
@@ -190,7 +204,7 @@ export default function Hero() {
               <div className="pin-dot shrink-0" />
             </div>
 
-            <div className="flex flex-col md:flex-row gap-md">
+            <div className="flex flex-col md:flex-row gap-md items-start">
               {/* Calendar grid */}
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-sm">

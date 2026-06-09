@@ -77,18 +77,18 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
   return (
     <motion.div
       variants={itemAnim}
-      className={`col-span-full ${feature.colSpan} ${cardClass} px-lg py-xl flex flex-col justify-between transition-all duration-300 group`}
+      className={`col-span-full ${feature.colSpan} ${cardClass} px-lg py-xl flex flex-col justify-center items-center text-center transition-all duration-300 group`}
     >
-      <div>
-        <div className="space-y-md">
+      <div className="w-full">
+        <div className="space-y-md flex flex-col items-center">
           <div className={`w-11 h-11 rounded-lg flex items-center justify-center ${feature.iconColor}`}>
             <span className="material-symbols-outlined text-2xl">
               {feature.icon}
             </span>
           </div>
-          <h3 className="text-headline-sm">{feature.title}</h3>
+          <h3 className="text-headline-sm w-full">{feature.title}</h3>
           <p
-            className={`text-body-md text-on-surface-variant max-w-lg leading-relaxed ${feature.textColor}`}
+            className={`text-body-md text-on-surface-variant w-full max-w-none ${feature.textColor}`}
           >
             {feature.description}
           </p>
@@ -134,7 +134,7 @@ export default function Features() {
             <h2 className="text-headline-md text-primary">
               Arquitectura de Eficiencia
             </h2>
-            <p className="text-body-md text-on-surface-variant mt-sm max-w-xl">
+            <p className="text-body-md text-on-surface-variant mt-sm w-full max-w-[700px]">
               Cada componente diseñado para eliminar fricción, optimizar tiempos y
               darle control total sobre su operación.
             </p>

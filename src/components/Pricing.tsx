@@ -64,11 +64,18 @@ const plans = [
 ]
 
 const cardAnim = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" as const },
+    scale: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 100,
+      damping: 18,
+      mass: 0.8,
+      delay: i * 0.08,
+    },
   }),
 }
 
@@ -85,7 +92,7 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ type: "spring", stiffness: 120, damping: 20 }}
           className="text-center mb-lg"
         >
           <div className="inline-flex items-center gap-md mb-sm">
@@ -108,13 +115,19 @@ export default function Pricing() {
               variants={cardAnim}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, margin: "-60px" }}
-              className={`bg-white rounded-none border-0 ${plan.badge} px-lg py-lg flex flex-col justify-between relative group hover:bg-gradient-to-b hover:from-white hover:to-surface-container-low/50 transition-all duration-500`}
+              viewport={{ once: true, amount: 0.1, margin: "-50px" }}
+              className={`card-tilt bg-white rounded-none border-0 ${plan.badge} px-lg py-lg flex flex-col justify-between relative group hover:bg-gradient-to-b hover:from-white hover:to-surface-container-low/50 transition-all duration-500 ${plan.popular ? "shadow-lg shadow-primary-container/20 ring-1 ring-primary/20" : "shadow-sm"}`}
             >
               {plan.popular && (
-                <div className="absolute top-0 right-0 bg-accent text-white text-[10px] px-sm py-1 font-bold rounded-bl z-10">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3, type: "spring", stiffness: 200, damping: 15 }}
+                  className="absolute top-0 right-0 bg-gradient-to-r from-accent to-amber-500 text-white text-[10px] px-sm py-1 font-bold rounded-bl z-10 shadow-sm"
+                >
                   RECOMENDADO
-                </div>
+                </motion.div>
               )}
 
               <div>

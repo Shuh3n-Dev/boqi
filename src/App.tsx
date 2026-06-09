@@ -1,3 +1,4 @@
+import { ScrollProgress } from "./components/ScrollProgress"
 import Hero from "./components/Hero"
 import StatsBar from "./components/StatsBar"
 import Features from "./components/Features"
@@ -9,6 +10,7 @@ import Footer from "./components/Footer"
 function App() {
   return (
     <>
+      <ScrollProgress />
       <main className="relative z-1">
         <Hero />
         <section>

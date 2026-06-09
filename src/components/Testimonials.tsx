@@ -31,16 +31,22 @@ const testimonials = [
 const container = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.2 },
+    transition: { staggerChildren: 0.15 },
   },
 }
 
 const cardAnim = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 40, scale: 0.96 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
+    scale: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 100,
+      damping: 18,
+      mass: 0.8,
+    },
   },
 }
 
@@ -54,7 +60,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ type: "spring", stiffness: 120, damping: 20 }}
           className="mb-lg flex items-start gap-md"
         >
           <div className="w-1 h-10 bg-accent rounded-full shrink-0 mt-1" />
@@ -69,14 +75,14 @@ export default function Testimonials() {
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, amount: 0.15, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-md"
         >
           {testimonials.map((t) => (
             <motion.div
               key={t.name}
               variants={cardAnim}
-              className="bg-white border border-outline-variant rounded-lg overflow-hidden p-lg hover:shadow-sm hover:border-primary-container/30 transition-all duration-500 group relative"
+              className="card-tilt bg-white border border-outline-variant rounded-lg overflow-hidden p-lg hover:shadow-md hover:border-primary-container/40 hover:-translate-y-1 transition-all duration-500 group relative"
             >
               {/* Card glow on hover */}
               <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">

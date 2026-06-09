@@ -56,16 +56,22 @@ const features = [
 const container = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.12 },
   },
 }
 
 const itemAnim = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 40, scale: 0.97 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
+    scale: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 100,
+      damping: 18,
+      mass: 0.8,
+    },
   },
 }
 
@@ -78,7 +84,7 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
   return (
     <motion.div
       variants={itemAnim}
-      className={`col-span-full ${feature.colSpan} ${cardClass} px-lg py-xl flex flex-col justify-center items-center text-center transition-all duration-500 group relative`}
+      className={`card-tilt col-span-full ${feature.colSpan} ${cardClass} px-lg py-xl flex flex-col justify-center items-center text-center transition-all duration-500 group relative`}
     >
       {/* Card glow on hover (CSS-only) */}
       {!isHero && (
@@ -140,7 +146,7 @@ export default function Features() {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ type: "spring", stiffness: 120, damping: 20 }}
           className="mb-lg flex items-start gap-md"
         >
           <div className="w-1 h-12 bg-accent rounded-full shrink-0 mt-1" />
@@ -159,7 +165,7 @@ export default function Features() {
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, amount: 0.1, margin: "-60px" }}
           className="bento-grid"
         >
           {features.map((feature) => (

@@ -121,7 +121,7 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
 export default function Features() {
   return (
     <section className="w-full px-gutter mb-xl scroll-mt-24" id="features">
-      <div className="w-full mx-auto max-w-[1280px]">
+      <div className="wrapper">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}

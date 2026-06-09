@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 export default function CTA() {
   return (
     <section className="w-full px-gutter py-xl">
-      <div className="w-full mx-auto max-w-[1280px]">
+      <div className="wrapper">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -26,7 +26,7 @@ export default function CTA() {
             <h2 className="text-headline-md text-white">
               ¿Listo para transformar su operativa?
             </h2>
-            <p className="max-w-xl text-white/70 text-body-lg">
+            <p className="w-full max-w-[650px] mx-auto text-white/70 text-body-lg">
               Únase a las empresas que ya están optimizando su gestión con Boqi.
               Comience su demostración hoy.
             </p>

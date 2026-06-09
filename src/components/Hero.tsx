@@ -84,7 +84,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="w-full mx-auto max-w-[1280px] flex flex-col items-center text-center space-y-md relative pt-[140px] md:pt-[180px]"
+        className="wrapper flex flex-col items-center text-center space-y-md relative pt-[140px] md:pt-[180px]"
       >
         <motion.span
           variants={item}
@@ -143,7 +143,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-        className="mt-xl w-full mx-auto max-w-[1280px] relative"
+        className="mt-xl wrapper relative"
       >
         {/* Paper clip — top right */}
         <div className="absolute -top-2 -right-3 z-20 hidden md:block rotate-12">

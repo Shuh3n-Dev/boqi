@@ -77,7 +77,7 @@ export default function Pricing() {
       className="w-full bg-gradient-to-b from-surface-container-lowest to-surface-container/50 border-y border-outline-variant/60 py-xl scroll-mt-24"
       id="pricing"
     >
-      <div className="w-full mx-auto max-w-[1280px]">
+      <div className="wrapper">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

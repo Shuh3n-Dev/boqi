@@ -46,7 +46,7 @@ const cardAnim = {
 export default function Testimonials() {
   return (
     <section className="w-full px-gutter mb-xl scroll-mt-24">
-      <div className="w-full mx-auto max-w-[1280px]">
+      <div className="wrapper">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}

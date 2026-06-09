@@ -68,7 +68,7 @@ const itemAnim = {
 export default function StatsBar() {
   return (
     <section className="w-full px-gutter mb-xl">
-      <div className="w-full mx-auto max-w-[1280px]">
+      <div className="wrapper">
         <motion.div
           variants={container}
           initial="hidden"

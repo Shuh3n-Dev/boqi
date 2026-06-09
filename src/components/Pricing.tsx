@@ -77,7 +77,7 @@ export default function Pricing() {
       className="w-full bg-gradient-to-b from-surface-container-lowest to-surface-container/50 border-y border-outline-variant/60 py-xl scroll-mt-24"
       id="pricing"
     >
-      <div className="w-[70%] mx-auto max-w-[1280px]">
+      <div className="w-full mx-auto max-w-[1280px]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ export default function Pricing() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-60px" }}
-              className={`notebook-card rounded-none border-0 ${plan.badge} px-lg py-lg flex flex-col justify-between relative`}
+              className={`bg-white rounded-none border-0 ${plan.badge} px-lg py-lg flex flex-col justify-between relative`}
             >
               {plan.popular && (
                 <div className="absolute top-0 right-0 bg-accent text-white text-[10px] px-sm py-1 font-bold rounded-bl z-10">
@@ -114,8 +114,8 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="notebook-card-body has-redline">
-                <div className="notebook-col">
+              <div>
+                <div>
                   <h4 className="text-label-sm text-on-surface-variant mb-md uppercase tracking-wider">
                     {plan.name}
                   </h4>

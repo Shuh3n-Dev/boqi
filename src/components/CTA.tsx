@@ -3,20 +3,20 @@ import { motion } from "framer-motion"
 export default function CTA() {
   return (
     <section className="w-full px-gutter py-xl">
-      <div className="w-[70%] mx-auto max-w-[1280px]">
+      <div className="w-full mx-auto max-w-[1280px]">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="notebook-card overflow-hidden"
+          className="bg-white border border-outline-variant rounded-lg overflow-hidden relative"
         >
           {/* Gradient background (inside the card) */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-container to-primary" />
           <div className="absolute top-[-100px] right-[-50px] w-[300px] h-[300px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
           <div className="absolute bottom-[-80px] left-[-50px] w-[250px] h-[250px] rounded-full bg-white/5 blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 notebook-card-body flex flex-col items-center space-y-md text-center px-lg py-xl">
+          <div className="relative z-10 flex flex-col items-center space-y-md text-center px-lg py-xl">
             {/* Washi tape accent */}
             <div className="washi-tape">
               <span className="text-label-sm uppercase tracking-widest bg-white/10 text-white/80 px-sm py-xs rounded">

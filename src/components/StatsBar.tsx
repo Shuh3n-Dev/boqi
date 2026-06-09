@@ -68,7 +68,7 @@ const itemAnim = {
 export default function StatsBar() {
   return (
     <section className="w-full px-gutter mb-xl">
-      <div className="w-[70%] mx-auto max-w-[1280px]">
+      <div className="w-full mx-auto max-w-[1280px]">
         <motion.div
           variants={container}
           initial="hidden"
@@ -80,10 +80,10 @@ export default function StatsBar() {
             <motion.div
               key={stat.label}
               variants={itemAnim}
-              className="notebook-card rounded-none border-0 bg-white p-lg md:p-xl flex flex-col items-center text-center gap-md group"
+              className="bg-white p-lg md:p-xl flex flex-col items-center text-center gap-md group"
             >
-              <div className="notebook-card-body has-redline">
-                <div className="notebook-col flex flex-col items-center text-center gap-md">
+              <div>
+                <div className="flex flex-col items-center text-center gap-md">
                   <span className="material-symbols-outlined text-3xl text-accent">
                     {stat.icon}
                   </span>

@@ -46,7 +46,7 @@ const cardAnim = {
 export default function Testimonials() {
   return (
     <section className="w-full px-gutter mb-xl scroll-mt-24">
-      <div className="w-[70%] mx-auto max-w-[1280px]">
+      <div className="w-full mx-auto max-w-[1280px]">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -73,10 +73,10 @@ export default function Testimonials() {
             <motion.div
               key={t.name}
               variants={cardAnim}
-              className="notebook-card p-lg hover:shadow-sm hover:border-primary-container/30 transition-all"
+              className="bg-white border border-outline-variant rounded-lg overflow-hidden p-lg hover:shadow-sm hover:border-primary-container/30 transition-all"
             >
-              <div className="notebook-card-body has-redline h-full">
-                <div className="notebook-col h-full gap-md flex flex-col">
+              <div className="h-full">
+                <div className="h-full gap-md flex flex-col">
                   <div
                     className={`w-10 h-10 rounded-lg flex items-center justify-center ${t.accent}`}
                   >

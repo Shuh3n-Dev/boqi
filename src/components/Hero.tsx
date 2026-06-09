@@ -79,7 +79,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="w-[70%] mx-auto max-w-[1280px] flex flex-col items-center text-center space-y-md relative"
+        className="w-full mx-auto max-w-[1280px] flex flex-col items-center text-center space-y-md relative"
       >
         <motion.span
           variants={item}
@@ -138,7 +138,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-        className="mt-xl w-[70%] mx-auto max-w-[1280px] relative"
+        className="mt-xl w-full mx-auto max-w-[1280px] relative"
       >
         {/* Paper clip — top right */}
         <div className="absolute -top-2 -right-3 z-20 hidden md:block rotate-12">
@@ -174,8 +174,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="notebook-card rounded-lg">
-          <div className="notebook-card-body">
+        <div className="bg-white border border-outline-variant rounded-lg overflow-hidden">
+          <div>
             {/* Mockup browser chrome */}
             <div className="flex items-center gap-sm mb-md pb-md border-b border-outline-variant/30">
               <div className="flex gap-[5px]">

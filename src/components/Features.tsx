@@ -72,25 +72,21 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
   const isHero = feature.isHero
   const cardClass = isHero
     ? feature.bg
-    : "notebook-card hover:shadow-sm hover:border-primary-container/30"
+    : "bg-white border border-outline-variant rounded-lg overflow-hidden hover:shadow-sm hover:border-primary-container/30"
 
   return (
     <motion.div
       variants={itemAnim}
       className={`col-span-full ${feature.colSpan} ${cardClass} px-lg py-xl flex flex-col justify-between transition-all duration-300 group`}
     >
-      <div className={isHero ? "" : "notebook-card-body has-redline"}>
-        <div className={isHero ? "space-y-md" : "notebook-col space-y-md"}>
-          <div
-            className={`w-11 h-11 rounded-lg flex items-center justify-center ${feature.iconColor}`}
-          >
+      <div>
+        <div className="space-y-md">
+          <div className={`w-11 h-11 rounded-lg flex items-center justify-center ${feature.iconColor}`}>
             <span className="material-symbols-outlined text-2xl">
               {feature.icon}
             </span>
           </div>
-          <h3 className="text-headline-sm">
-            {feature.title}
-          </h3>
+          <h3 className="text-headline-sm">{feature.title}</h3>
           <p
             className={`text-body-md text-on-surface-variant max-w-lg leading-relaxed ${feature.textColor}`}
           >
@@ -125,7 +121,7 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
 export default function Features() {
   return (
     <section className="w-full px-gutter mb-xl scroll-mt-24" id="features">
-      <div className="w-[70%] mx-auto max-w-[1280px]">
+      <div className="w-full mx-auto max-w-[1280px]">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -134,7 +130,7 @@ export default function Features() {
           className="mb-lg flex items-start gap-md"
         >
           <div className="w-1 h-12 bg-accent rounded-full shrink-0 mt-1" />
-          <div>
+          <div className="flex-1 min-w-0">
             <h2 className="text-headline-md text-primary">
               Arquitectura de Eficiencia
             </h2>

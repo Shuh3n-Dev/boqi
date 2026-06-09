@@ -170,8 +170,8 @@ body::before {
     to bottom,
     transparent 0px,
     transparent calc(var(--notebook-line-gap) - 1px),
-    rgba(195, 197, 217, 0.2) calc(var(--notebook-line-gap) - 1px),
-    rgba(195, 197, 217, 0.2) var(--notebook-line-gap)
+    rgba(195, 197, 217, 0.25) calc(var(--notebook-line-gap) - 1px),
+    rgba(195, 197, 217, 0.25) var(--notebook-line-gap)
   );
 }
 
@@ -229,8 +229,8 @@ body::before {
     to bottom,
     transparent 0px,
     transparent calc(var(--notebook-line-gap) - 1px),
-    rgba(195, 197, 217, 0.2) calc(var(--notebook-line-gap) - 1px),
-    rgba(195, 197, 217, 0.2) var(--notebook-line-gap)
+    rgba(195, 197, 217, 0.3) calc(var(--notebook-line-gap) - 1px),
+    rgba(195, 197, 217, 0.3) var(--notebook-line-gap)
   );
   border-radius: inherit;
 }
@@ -239,6 +239,7 @@ body::before {
 .notebook-card-body {
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 /* Red margin line inside the card */
@@ -251,18 +252,10 @@ body::before {
   width: 1px;
   background: linear-gradient(
     to bottom,
-    rgba(220, 38, 38, 0.3) 0%,
-    rgba(220, 38, 38, 0.1) 100%
+    rgba(220, 38, 38, 0.45) 0%,
+    rgba(220, 38, 38, 0.2) 100%
   );
   pointer-events: none;
-}
-
-/* Writing column: pushes content past the red margin line */
-.notebook-col {
-  display: flex;
-  flex-direction: column;
-  gap: inherit;
-  padding-left: 28px;
 }
 
 /* Hero card (gradient) has no ruled lines */

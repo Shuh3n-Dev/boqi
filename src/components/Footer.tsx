@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="absolute top-0 left-[var(--spacing-lg)] w-px h-2 bg-red-400/20 pointer-events-none" />
       </div>
 
-      <div className="w-[70%] mx-auto max-w-[1280px] py-lg">
+      <div className="w-full mx-auto max-w-[1280px] py-lg">
         <div className="flex flex-col md:flex-row justify-between items-center gap-md">
           <div className="flex items-center gap-sm">
             <div className="w-1 h-6 bg-accent rounded-full" />

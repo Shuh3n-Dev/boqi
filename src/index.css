@@ -44,6 +44,15 @@
   --color-tertiary-fixed-dim: #cac6c4;
   --color-surface-tint: #5f5e5e;
 
+  /* Accent colors */
+  --color-accent: #d97706;
+  --color-accent-light: #fffbeb;
+  --color-accent-ring: #f59e0b;
+  --color-success: #059669;
+  --color-success-light: #ecfdf5;
+  --color-info: #0284c7;
+  --color-info-light: #f0f9ff;
+
   --font-family-body-lg: "Geist", sans-serif;
   --font-family-mono-label: "Geist Mono", monospace;
   --font-family-display-lg-mobile: "Geist", sans-serif;

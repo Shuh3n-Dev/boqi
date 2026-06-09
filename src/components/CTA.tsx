@@ -9,32 +9,42 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="bg-primary text-on-primary rounded-xl p-xl flex flex-col items-center space-y-md text-center"
+          className="relative overflow-hidden rounded-xl px-xl py-xl flex flex-col items-center space-y-md text-center"
         >
-          <h2 className="font-headline-md text-headline-md">
-            ¿Listo para transformar su operativa?
-          </h2>
-          <p className="max-w-xl opacity-80">
-            Únase a las empresas que ya están optimizando su gestión con Boqi.
-            Comience su demostración hoy.
-          </p>
-          <div className="flex gap-md pt-md flex-wrap justify-center">
-            <motion.a
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              href="#"
-              className="bg-white text-primary px-xl py-md rounded font-medium hover:bg-neutral-100 transition-colors inline-block"
-            >
-              Agendar Demo
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              href="#"
-              className="border border-white/30 text-white px-xl py-md rounded font-medium hover:bg-white/10 transition-colors inline-block"
-            >
-              Saber Más
-            </motion.a>
+          {/* Gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-neutral-900 to-neutral-800" />
+          <div className="absolute top-[-100px] right-[-50px] w-[300px] h-[300px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-[-80px] left-[-50px] w-[250px] h-[250px] rounded-full bg-secondary/10 blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col items-center space-y-md">
+            <span className="font-mono-label text-mono-label uppercase tracking-widest bg-white/10 text-white/80 px-sm py-xs rounded-full">
+              Comience hoy
+            </span>
+            <h2 className="font-headline-md text-headline-md text-white">
+              ¿Listo para transformar su operativa?
+            </h2>
+            <p className="max-w-xl text-white/70 text-body-lg">
+              Únase a las empresas que ya están optimizando su gestión con Boqi.
+              Comience su demostración hoy.
+            </p>
+            <div className="flex gap-md pt-md flex-wrap justify-center">
+              <motion.a
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                href="#"
+                className="bg-white text-primary px-xl py-md rounded-lg font-medium hover:bg-neutral-100 transition-all inline-block shadow-sm"
+              >
+                Agendar Demo
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                href="#"
+                className="border border-white/20 text-white px-xl py-md rounded-lg font-medium hover:bg-white/10 transition-all inline-block"
+              >
+                Saber Más
+              </motion.a>
+            </div>
           </div>
         </motion.div>
       </div>

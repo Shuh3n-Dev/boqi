@@ -6,16 +6,19 @@ const plans = [
     price: "$30k",
     period: "/mes",
     highlight: false,
+    popular: false,
     features: ["Hasta 2 cuentas", "Soporte básico", "Agendamiento standard"],
     cta: "Seleccionar Plan",
     primary: false,
     bg: "bg-white",
+    badge: "border-l-4 border-l-accent",
   },
   {
     name: "PRO",
     price: "$50k",
     period: "/mes",
     highlight: true,
+    popular: true,
     features: [
       "Hasta 5 cuentas",
       "Funciones avanzadas",
@@ -25,12 +28,14 @@ const plans = [
     cta: "Seleccionar Plan",
     primary: true,
     bg: "bg-white",
+    badge: "",
   },
   {
     name: "CORPORATIVO",
     price: "$70k",
     period: "/mes",
     highlight: false,
+    popular: false,
     features: [
       "Hasta 10 cuentas",
       "Reportería completa",
@@ -40,12 +45,14 @@ const plans = [
     cta: "Seleccionar Plan",
     primary: false,
     bg: "bg-white",
+    badge: "border-l-4 border-l-info",
   },
   {
     name: "ENTERPRISE",
     price: "Negociar",
     period: "",
     highlight: false,
+    popular: false,
     features: [
       "Cuentas ilimitadas",
       "Integración personalizada",
@@ -55,6 +62,7 @@ const plans = [
     cta: "Contactar Ventas",
     primary: false,
     bg: "bg-surface-container-low",
+    badge: "",
   },
 ]
 
@@ -70,7 +78,7 @@ const cardAnim = {
 export default function Pricing() {
   return (
     <section
-      className="w-full bg-surface-container-lowest border-y border-outline-variant py-xl scroll-mt-24"
+      className="w-full bg-gradient-to-b from-surface-container-lowest to-surface-container/50 border-y border-outline-variant py-xl scroll-mt-24"
       id="pricing"
     >
       <div className="w-[70%] mx-auto max-w-[1280px]">
@@ -84,13 +92,13 @@ export default function Pricing() {
           <h2 className="font-headline-md text-headline-md text-primary mb-sm">
             Planes de Inversión
           </h2>
-          <p className="text-on-surface-variant">
+          <p className="text-body-md text-on-surface-variant max-w-xl mx-auto">
             Escalabilidad diseñada para el crecimiento de su consultoría o
-            clínica.
+            clínica. Elija el plan que mejor se adapte a sus necesidades.
           </p>
         </motion.div>
 
-        <div className="pricing-grid">
+        <div className="pricing-grid rounded-xl overflow-hidden shadow-sm">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -99,10 +107,10 @@ export default function Pricing() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-60px" }}
-              className={`${plan.bg} p-lg flex flex-col justify-between relative`}
+              className={`${plan.bg} ${plan.badge} px-xl py-lg flex flex-col justify-between relative`}
             >
-              {plan.highlight && (
-                <div className="absolute top-0 right-0 bg-secondary text-on-primary text-[10px] px-sm py-1 font-bold">
+              {plan.popular && (
+                <div className="absolute top-0 right-0 bg-accent text-white text-[10px] px-sm py-1 font-bold rounded-bl">
                   RECOMENDADO
                 </div>
               )}
@@ -126,8 +134,8 @@ export default function Pricing() {
                       key={feat}
                       className="flex items-center gap-sm text-body-sm"
                     >
-                      <span className="material-symbols-outlined text-secondary text-sm">
-                        check
+                      <span className="material-symbols-outlined text-success text-sm">
+                        check_circle
                       </span>
                       {feat}
                     </li>
@@ -140,8 +148,8 @@ export default function Pricing() {
                 whileTap={{ scale: 0.98 }}
                 className={
                   plan.primary
-                    ? "w-full bg-primary text-on-primary py-sm rounded hover:bg-neutral-800 transition-colors cursor-pointer"
-                    : "w-full border border-primary py-sm rounded hover:bg-neutral-50 transition-colors cursor-pointer"
+                    ? "w-full bg-primary text-on-primary py-sm rounded-lg font-medium hover:bg-neutral-800 transition-all cursor-pointer shadow-sm"
+                    : "w-full border border-outline-variant py-sm rounded-lg font-medium hover:border-primary hover:text-primary transition-all cursor-pointer"
                 }
               >
                 {plan.cta}
@@ -149,6 +157,10 @@ export default function Pricing() {
             </motion.div>
           ))}
         </div>
+
+        <p className="text-center text-body-sm text-on-surface-variant/60 mt-md">
+          Todos los planes incluyen 14 días de prueba gratuita. Sin compromiso.
+        </p>
       </div>
     </section>
   )

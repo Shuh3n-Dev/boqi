@@ -78,7 +78,7 @@ const cardAnim = {
 export default function Pricing() {
   return (
     <section
-      className="w-full bg-gradient-to-b from-surface-container-lowest to-surface-container/50 border-y border-outline-variant py-xl scroll-mt-24"
+      className="w-full bg-gradient-to-b from-surface-container-lowest to-surface-container/50 border-y border-outline-variant/60 py-xl scroll-mt-24"
       id="pricing"
     >
       <div className="w-[70%] mx-auto max-w-[1280px]">
@@ -87,18 +87,18 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-xl"
+          className="text-center mb-lg"
         >
-          <h2 className="font-headline-md text-headline-md text-primary mb-sm">
+          <h2 className="text-headline-md text-headline-md text-primary mb-sm">
             Planes de Inversión
           </h2>
-          <p className="text-body-md text-on-surface-variant max-w-xl mx-auto">
+          <p className="text-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">
             Escalabilidad diseñada para el crecimiento de su consultoría o
             clínica. Elija el plan que mejor se adapte a sus necesidades.
           </p>
         </motion.div>
 
-        <div className="pricing-grid rounded-xl overflow-hidden shadow-sm">
+        <div className="pricing-grid">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -107,7 +107,7 @@ export default function Pricing() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-60px" }}
-              className={`${plan.bg} ${plan.badge} px-xl py-lg flex flex-col justify-between relative`}
+              className={`${plan.bg} ${plan.badge} px-lg py-lg flex flex-col justify-between relative`}
             >
               {plan.popular && (
                 <div className="absolute top-0 right-0 bg-accent text-white text-[10px] px-sm py-1 font-bold rounded-bl">
@@ -116,13 +116,13 @@ export default function Pricing() {
               )}
 
               <div>
-                <h4 className="font-label-caps text-label-caps text-on-surface-variant mb-md">
+                <h4 className="text-label-sm text-label-sm text-on-surface-variant mb-md uppercase tracking-wider">
                   {plan.name}
                 </h4>
-                <div className="font-headline-md text-headline-md mb-lg">
+                <div className="text-headline-md text-headline-md mb-lg">
                   {plan.price}
                   {plan.period && (
-                    <span className="text-body-sm font-normal text-on-surface-variant">
+                    <span className="text-body-sm text-body-sm font-normal text-on-surface-variant">
                       {plan.period}
                     </span>
                   )}
@@ -132,7 +132,7 @@ export default function Pricing() {
                   {plan.features.map((feat) => (
                     <li
                       key={feat}
-                      className="flex items-center gap-sm text-body-sm"
+                      className="flex items-center gap-sm text-body-sm text-body-sm"
                     >
                       <span className="material-symbols-outlined text-success text-sm">
                         check_circle
@@ -148,8 +148,8 @@ export default function Pricing() {
                 whileTap={{ scale: 0.98 }}
                 className={
                   plan.primary
-                    ? "w-full bg-primary text-on-primary py-sm rounded-lg font-medium hover:bg-neutral-800 transition-all cursor-pointer shadow-sm"
-                    : "w-full border border-outline-variant py-sm rounded-lg font-medium hover:border-primary hover:text-primary transition-all cursor-pointer"
+                    ? "w-full bg-primary-container text-on-primary-container py-sm rounded font-medium transition-all hover:brightness-110 cursor-pointer shadow-sm text-label-md"
+                    : "w-full border border-outline py-sm rounded font-medium hover:border-primary hover:text-primary transition-all cursor-pointer text-label-md"
                 }
               >
                 {plan.cta}
@@ -158,7 +158,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <p className="text-center text-body-sm text-on-surface-variant/60 mt-md">
+        <p className="text-center text-body-sm text-body-sm text-on-surface-variant/60 mt-md">
           Todos los planes incluyen 14 días de prueba gratuita. Sin compromiso.
         </p>
       </div>

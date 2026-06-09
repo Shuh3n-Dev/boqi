@@ -67,28 +67,28 @@ const itemAnim = {
 
 export default function StatsBar() {
   return (
-    <section className="w-full px-lg mb-xl">
+    <section className="w-full px-gutter mb-xl">
       <div className="w-[70%] mx-auto max-w-[1280px]">
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-outline-variant/50 rounded-xl overflow-hidden border border-outline-variant/50"
+          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-outline-variant/50 rounded-lg overflow-hidden border border-outline-variant/50"
         >
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
               variants={itemAnim}
-              className="bg-white p-lg md:p-xl flex flex-col items-center text-center gap-md group hover:bg-accent-light/50 transition-colors"
+              className="bg-white p-lg md:p-xl flex flex-col items-center text-center gap-md group hover:bg-accent-light/30 transition-colors"
             >
               <span className="material-symbols-outlined text-3xl text-accent">
                 {stat.icon}
               </span>
-              <div className="font-display-lg text-display-lg text-primary font-bold">
+              <div className="text-headline-lg text-headline-lg text-primary font-bold">
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-body-sm text-on-surface-variant">
+              <div className="text-body-sm text-body-sm text-on-surface-variant">
                 {stat.label}
               </div>
             </motion.div>

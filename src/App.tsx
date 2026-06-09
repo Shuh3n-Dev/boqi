@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="pt-28 md:pt-32">
+      <main className="pt-20">
         <Hero />
         <StatsBar />
         <Features />

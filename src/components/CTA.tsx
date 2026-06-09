@@ -2,28 +2,28 @@ import { motion } from "framer-motion"
 
 export default function CTA() {
   return (
-    <section className="w-full px-lg py-xl">
+    <section className="w-full px-gutter py-xl">
       <div className="w-[70%] mx-auto max-w-[1280px]">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative overflow-hidden rounded-xl px-xl py-xl flex flex-col items-center space-y-md text-center"
+          className="relative overflow-hidden rounded-lg px-lg py-xl flex flex-col items-center space-y-md text-center"
         >
           {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary via-neutral-900 to-neutral-800" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-container to-primary" />
           <div className="absolute top-[-100px] right-[-50px] w-[300px] h-[300px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-[-80px] left-[-50px] w-[250px] h-[250px] rounded-full bg-secondary/10 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-[-80px] left-[-50px] w-[250px] h-[250px] rounded-full bg-white/5 blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col items-center space-y-md">
-            <span className="font-mono-label text-mono-label uppercase tracking-widest bg-white/10 text-white/80 px-sm py-xs rounded-full">
+            <span className="text-label-sm text-label-sm uppercase tracking-widest bg-white/10 text-white/80 px-sm py-xs rounded">
               Comience hoy
             </span>
-            <h2 className="font-headline-md text-headline-md text-white">
+            <h2 className="text-headline-md text-headline-md text-white">
               ¿Listo para transformar su operativa?
             </h2>
-            <p className="max-w-xl text-white/70 text-body-lg">
+            <p className="max-w-xl text-white/70 text-body-lg text-body-lg">
               Únase a las empresas que ya están optimizando su gestión con Boqi.
               Comience su demostración hoy.
             </p>
@@ -32,7 +32,7 @@ export default function CTA() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="#"
-                className="bg-white text-primary px-xl py-md rounded-lg font-medium hover:bg-neutral-100 transition-all inline-block shadow-sm"
+                className="bg-white text-primary px-lg py-sm rounded font-medium hover:bg-neutral-100 transition-all inline-block shadow-sm text-label-md"
               >
                 Agendar Demo
               </motion.a>
@@ -40,7 +40,7 @@ export default function CTA() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="#"
-                className="border border-white/20 text-white px-xl py-md rounded-lg font-medium hover:bg-white/10 transition-all inline-block"
+                className="border border-white/20 text-white px-lg py-sm rounded font-medium hover:bg-white/10 transition-all inline-block text-label-md"
               >
                 Saber Más
               </motion.a>

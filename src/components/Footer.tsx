@@ -15,11 +15,11 @@ export default function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="w-full border-t border-outline-variant bg-white"
+      className="w-full border-t border-outline-variant/60 bg-white"
     >
       <div className="w-[70%] mx-auto max-w-[1280px] py-lg">
         <div className="flex flex-col md:flex-row justify-between items-center gap-md">
-          <div className="font-headline-md text-headline-md font-bold text-primary">
+          <div className="text-headline-md text-headline-md font-bold text-primary">
             Boqi
           </div>
           <nav className="flex flex-wrap justify-center gap-x-lg gap-y-sm">
@@ -27,14 +27,14 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-body-sm text-on-surface-variant hover:text-primary transition-colors"
+                className="text-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </nav>
         </div>
-        <div className="mt-md pt-md border-t border-outline-variant/30 text-center text-body-sm text-on-surface-variant/60">
+        <div className="mt-md pt-md border-t border-outline-variant/30 text-center text-body-sm text-body-sm text-on-surface-variant/60">
           © 2024 Boqi Systems. Todos los derechos reservados.
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { useEffect, useState, useRef } from "react"
+import { FloatingIcon } from "@/components/ui/floating-icon"
 
 const stats = [
   { value: 1240, suffix: "+", label: "Clientes activos", icon: "business" },
@@ -72,7 +73,37 @@ const itemAnim = {
 
 export default function StatsBar() {
   return (
-    <section className="w-full px-gutter mb-xl relative">
+    <section className="w-full px-gutter mb-xl relative overflow-hidden">
+
+      {/* Vector decorativo — Calendario (agendamiento) */}
+      <FloatingIcon
+        icon="calendar_month"
+        size="lg"
+        color="primary"
+        className="-left-6 top-1/4"
+        duration={7}
+        delay={0}
+      />
+
+      {/* Vector decorativo — Smart AI (chat/conversacional) */}
+      <FloatingIcon
+        icon="smart_toy"
+        size="lg"
+        color="accent"
+        className="-right-6 top-1/3"
+        duration={8}
+        delay={1.5}
+      />
+
+      {/* Vector decorativo — Insights (analytics) */}
+      <FloatingIcon
+        icon="insights"
+        size="md"
+        color="info"
+        className="left-[8%] bottom-[10%]"
+        duration={6.5}
+        delay={0.8}
+      />
       <div className="wrapper">
         <motion.div
           variants={container}

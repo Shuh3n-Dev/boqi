@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { FloatingIcon } from "@/components/ui/floating-icon"
 
 const features = [
   {
@@ -138,6 +139,36 @@ function FeatureCard({ feature, index }: { feature: (typeof features)[number]; i
 export default function Features() {
   return (
     <section className="w-full px-gutter mb-xl scroll-mt-24 relative overflow-hidden" id="features">
+      {/* Vector decorativo — AI/Inteligencia */}
+      <FloatingIcon
+        icon="psychiatry"
+        size="lg"
+        color="primary"
+        className="-left-6 top-[15%]"
+        duration={7.5}
+        delay={0.5}
+      />
+
+      {/* Vector decorativo — Automatización */}
+      <FloatingIcon
+        icon="autorenew"
+        size="md"
+        color="accent"
+        className="-right-4 top-[30%]"
+        duration={6.5}
+        delay={1.2}
+      />
+
+      {/* Vector decorativo — Reportería */}
+      <FloatingIcon
+        icon="monitoring"
+        size="lg"
+        color="info"
+        className="-right-4 bottom-[10%]"
+        duration={8}
+        delay={0}
+      />
+
       <div className="wrapper">
         <motion.div
           initial={{ opacity: 0, x: -30 }}

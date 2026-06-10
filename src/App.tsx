@@ -1,4 +1,5 @@
 import { ScrollProgress } from "./components/ScrollProgress"
+import { SectionBackground } from "@/components/ui/section-background"
 import Hero from "./components/Hero"
 import StatsBar from "./components/StatsBar"
 import Features from "./components/Features"
@@ -13,14 +14,23 @@ function App() {
       <ScrollProgress />
       <main className="relative z-1">
         <Hero />
-        <section>
+
+        <section className="relative overflow-hidden">
+          <SectionBackground variant="subtle" />
           <StatsBar />
           <Features />
         </section>
-        <section>
+
+        <section className="relative overflow-hidden">
+          <SectionBackground variant="subtle" />
           <Testimonials />
         </section>
-        <Pricing />
+
+        <section className="relative overflow-hidden">
+          <SectionBackground variant="subtle" />
+          <Pricing />
+        </section>
+
         <CTA />
       </main>
       <Footer />

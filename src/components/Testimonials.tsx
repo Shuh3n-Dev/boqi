@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { FloatingIcon } from "@/components/ui/floating-icon"
 
 const testimonials = [
   {
@@ -51,7 +52,37 @@ const cardAnim = {
 
 export default function Testimonials() {
   return (
-    <section className="w-full px-gutter mb-xl scroll-mt-24 relative">
+    <section className="w-full px-gutter mb-xl scroll-mt-24 relative overflow-hidden">
+
+      {/* Vector decorativo — Testimonios/Estrellas */}
+      <FloatingIcon
+        icon="star"
+        size="lg"
+        color="accent"
+        className="-left-6 top-[20%]"
+        duration={7}
+        delay={0}
+      />
+
+      {/* Vector decorativo — Grupos/Clientes */}
+      <FloatingIcon
+        icon="diversity_3"
+        size="lg"
+        color="primary"
+        className="-right-6 top-[15%]"
+        duration={8}
+        delay={1}
+      />
+
+      {/* Vector decorativo — Opiniones */}
+      <FloatingIcon
+        icon="rate_review"
+        size="md"
+        color="success"
+        className="right-[12%] bottom-[8%]"
+        duration={6.5}
+        delay={0.7}
+      />
       <div className="wrapper">
         <motion.div
           initial={{ opacity: 0, x: -30 }}

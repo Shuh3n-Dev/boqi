@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { FloatingIcon } from "@/components/ui/floating-icon"
 
 const plans = [
   {
@@ -81,9 +82,39 @@ const cardAnim = {
 export default function Pricing() {
   return (
     <section
-      className="w-full px-gutter mb-xl scroll-mt-24 relative"
+      className="w-full px-gutter mb-xl scroll-mt-24 relative overflow-hidden"
       id="pricing"
     >
+      {/* Vector decorativo — Sell/Tag (planes) */}
+      <FloatingIcon
+        icon="sell"
+        size="lg"
+        color="accent"
+        className="-left-6 top-[10%]"
+        duration={7.5}
+        delay={0.3}
+      />
+
+      {/* Vector decorativo — Premium/Badge */}
+      <FloatingIcon
+        icon="workspace_premium"
+        size="lg"
+        color="primary"
+        className="-right-6 top-[5%]"
+        duration={6.5}
+        delay={1.5}
+      />
+
+      {/* Vector decorativo — Ahorro/Eficiencia */}
+      <FloatingIcon
+        icon="savings"
+        size="md"
+        color="success"
+        className="right-[8%] bottom-[6%]"
+        duration={7}
+        delay={0.8}
+      />
+
       <div className="wrapper">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

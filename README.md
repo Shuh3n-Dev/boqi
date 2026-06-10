@@ -1,73 +1,144 @@
-# React + TypeScript + Vite
+# Boqi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Agenda Inteligente con IA** — Eliminamos la fricción entre tu negocio y tus clientes.
 
-Currently, two official plugins are available:
+Boqi es una plataforma de agendamiento conversacional impulsada por inteligencia artificial que automatiza recordatorios, centraliza facturación, inventario y comunicación en un solo sistema. Menos fricción, más clientes atendidos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ¿Qué problema resuelve?
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Problema | Solución Boqi |
+|---|---|
+| **Ausencias y no-shows** | IA conversacional que agenda, confirma y recuerda citas 24/7 |
+| **Sistemas fragmentados** | Facturación, inventario, agenda y comunicación unificados |
+| **Carga operativa manual** | Automatización de citas, reportería en tiempo real |
+| **Múltiples sedes/verticales** | Control total multinegocio desde un solo panel |
+| **Falta de visibilidad** | Reportería en tiempo real para decisiones estratégicas |
 
-## Expanding the ESLint configuration
+## Features clave
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Agendamiento conversacional con IA** — elimina barreras entre el servicio y el usuario
+- **Control multinegocio** — gestioná múltiples sedes desde un panel centralizado
+- **Automatización de citas** — confirmación y recordatorios autónomos
+- **Reportería en tiempo real** — datos precisos para decisiones estratégicas
+- **Integración de pagos** — facturación unificada
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Design System
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Paleta de colores
+
+```css
+/* Primario — Azul Eléctrico (confianza, profesionalismo) */
+--color-primary:            #003ec7
+--color-on-primary:         #ffffff
+--color-primary-container:  #0052ff
+--color-on-primary-container: #dfe3ff
+
+/* Acento — Naranja Cálido (contraste, acción) */
+--color-accent:             #f97316
+--color-accent-light:       #fff7ed
+
+/* Superficie — Azul muy claro (limpio, aireado) */
+--color-surface:            #f8f9ff
+--color-on-surface:         #0b1c30
+--color-surface-container:  #e5eeff
+
+/* Estados */
+--color-success: #10b981    /* Verde — confirmación */
+--color-info:    #06b6d4    /* Cian — información */
+--color-error:   #ba1a1a    /* Rojo — errores */
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+La paleta sigue el sistema **Material 3** (tonal palette) con variantes `-fixed`, `-fixed-dim`, `-container`, etc., asegurando consistencia en todos los estados (hover, active, disabled).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Tipografía
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Propiedad | Valor |
+|---|---|
+| Fuente | **Inter Variable** (sans-serif) |
+| Display | 48px / 700w / -0.02em |
+| Headline LG | 32px / 600w |
+| Headline MD | 24px / 600w |
+| Body LG | 18px / 400w |
+| Body MD | 16px / 400w |
+| Label MD | 14px / 500w / +0.02em |
+
+### Layout — Wrapper (70% de ancho)
+
+El contenido principal está contenido en un **wrapper** que se comporta así:
+
+```
+Móvil (default):    width: 100%,  max-width: 1400px,  padding: 0 20px
+Desktop (≥1024px):  width: 70%,   max-width: 1400px,  margin: 0 auto
+```
+
+Este enfoque da **contenido fluido en mobile** y una **columna centrada del 70% en desktop**, creando una lectura cómoda sin llegar a los extremos de la pantalla.
+
+```css
+.wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    width: 70%;
+  }
+}
+```
+
+### Grid system
+
+| Contexto | Grid | Gap |
+|---|---|---|
+| Bento (Features) | 12 columnas en desktop | 16px |
+| Pricing | 4 columnas en desktop | 16px |
+| Stats | 4 columnas en desktop | 16px |
+| Testimonios | 3 columnas en desktop | 16px |
+
+### Cards — Glassmorphism + Levitación
+
+Todas las cards del sistema usan el clase `.glass-card`:
+
+- **Fondo**: `rgba(255, 255, 255, 0.55)` con `backdrop-filter: blur(20px)`
+- **Borde**: `1px solid rgba(255, 255, 255, 0.35)`
+- **Sombras**: 4 capas (1px → 48px) para profundidad real
+- **Levitación**: animación `float` 6s con CSS `translate` (sin conflicto con framer-motion)
+- **Hover**: sube 4px, fondo más opaco, sombras más intensas
+
+### Decoración
+
+- **Fondo**: Dot grid estilo bullet-journal (`radial-gradient` cada 20px)
+- **Background beams**: Blur circles con parallax vía `SectionBackground`
+- **Vectores flotantes**: `FloatingIcon` con Material Symbols en contenedores glassmórficos
+
+---
+
+## Stack técnico
+
+| Capa | Tecnología |
+|---|---|
+| Framework | React 19 |
+| Build | Vite 8 |
+| Lenguaje | TypeScript 6 |
+| CSS | Tailwind CSS v4 |
+| Animaciones | framer-motion 12 + CSS |
+| UI | shadcn/ui + Base UI |
+| Iconos | Material Symbols + Lucide |
+| Fuente | Inter Variable |
+
+---
+
+## Scripts
+
+```bash
+npm run dev      # Desarrollo
+npm run build    # Build producción
+npm run preview  # Preview del build
+npm run lint     # ESLint
 ```

@@ -74,16 +74,17 @@ const itemAnim = {
   },
 }
 
-function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
+function FeatureCard({ feature, index }: { feature: (typeof features)[number]; index: number }) {
   const isHero = feature.isHero
   const cardClass = isHero
-    ? "bg-gradient-to-br from-primary via-primary-container to-primary text-white shadow-lg shadow-primary/20"
-    : "bg-white/65 backdrop-blur-xl border border-white/30 shadow-lg shadow-primary-container/5 rounded-xl overflow-hidden"
+    ? "glass-card-hero bg-gradient-to-br from-primary via-primary-container to-primary text-white"
+    : "glass-card glass-card-float"
 
   return (
     <motion.div
       variants={itemAnim}
-      className={`card-tilt col-span-full ${feature.colSpan} ${cardClass} px-lg py-xl flex flex-col justify-center items-center text-center transition-all duration-500 group relative`}
+      className={`col-span-full ${feature.colSpan} ${cardClass} px-lg py-xl flex flex-col justify-center items-center text-center group relative`}
+      style={!isHero ? { animationDelay: `${-index * 1.5}s` } : undefined}
     >
       {/* Card glow on hover (CSS-only) */}
       {!isHero && (
@@ -164,8 +165,8 @@ export default function Features() {
           viewport={{ once: true, amount: 0.1, margin: "-60px" }}
           className="bento-grid"
         >
-          {features.map((feature) => (
-            <FeatureCard key={feature.title} feature={feature} />
+          {features.map((feature, index) => (
+            <FeatureCard key={feature.title} feature={feature} index={index} />
           ))}
         </motion.div>
       </div>

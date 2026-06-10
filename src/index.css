@@ -438,6 +438,93 @@ body::before {
   transform: perspective(800px) rotateY(-2deg) rotateX(2deg);
 }
 
+/* ── Glass Card System (Glassmorphism + Levitation) ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+
+  /* Levitation — layered shadows for floating depth */
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 62, 199, 0.04),
+    0 12px 24px rgba(0, 0, 0, 0.04),
+    0 24px 48px rgba(0, 0, 0, 0.02);
+
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Subtle gradient sheen overlay (depth for the glass) */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ensure content sits above the sheen (skip absolutely positioned children) */
+.glass-card > :not(.absolute) {
+  position: relative;
+  z-index: 2;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.5);
+  translate: 0 -4px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 16px rgba(0, 62, 199, 0.06),
+    0 24px 48px rgba(0, 0, 0, 0.06),
+    0 48px 80px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Glass Card Hero (gradient variant) ── */
+.glass-card-hero {
+  box-shadow:
+    0 4px 12px rgba(0, 62, 199, 0.15),
+    0 12px 28px rgba(0, 62, 199, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass-card-hero:hover {
+  translate: 0 -4px;
+  box-shadow:
+    0 8px 20px rgba(0, 62, 199, 0.25),
+    0 24px 48px rgba(0, 62, 199, 0.15);
+}
+
+/* ── Levitation Float Animation ── */
+@keyframes float {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+.glass-card-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pause float on hover so the `translate` hover effect takes over smoothly */
+.glass-card-float:hover {
+  animation-play-state: paused;
+}
+
 /* ── Custom grid layouts ── */
 .wrapper {
   width: 100%;

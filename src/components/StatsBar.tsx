@@ -81,11 +81,12 @@ export default function StatsBar() {
           viewport={{ once: true, amount: 0.15, margin: "-60px" }}
           className="grid grid-cols-2 md:grid-cols-4 gap-md"
         >
-          {stats.map((stat) => (
+          {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
               variants={itemAnim}
-              className="card-tilt bg-white/65 backdrop-blur-xl border border-white/30 shadow-lg shadow-primary-container/5 rounded-xl p-lg md:p-xl flex flex-col items-center text-center gap-md group hover:bg-white/80 hover:shadow-xl hover:shadow-primary-container/10 hover:-translate-y-1 transition-all duration-500"
+              className="glass-card glass-card-float p-lg md:p-xl flex flex-col items-center text-center gap-md group"
+              style={{ animationDelay: `${-i * 1.5}s` }}
             >
               <div>
                 <div className="flex flex-col items-center text-center gap-md">

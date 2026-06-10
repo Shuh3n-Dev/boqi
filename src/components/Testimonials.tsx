@@ -75,11 +75,12 @@ export default function Testimonials() {
           viewport={{ once: true, amount: 0.15, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-md"
         >
-          {testimonials.map((t) => (
+          {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
               variants={cardAnim}
-              className="card-tilt bg-white/65 backdrop-blur-xl border border-white/30 shadow-lg shadow-primary-container/5 rounded-xl overflow-hidden p-lg hover:bg-white/80 hover:shadow-xl hover:shadow-primary-container/10 hover:-translate-y-1 transition-all duration-500 group relative"
+              className="glass-card glass-card-float p-lg group relative"
+              style={{ animationDelay: `${-i * 2}s` }}
             >
               {/* Card glow on hover */}
               <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">

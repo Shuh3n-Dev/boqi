@@ -52,7 +52,7 @@ export default function StackedSections() {
         {/* ═══ Showcase — pinned atrás ═══ */}
         <motion.div
           style={{ opacity: showcaseOpacity }}
-          className="sticky top-0 h-screen z-10 overflow-hidden bg-background"
+          className="sticky top-0 h-screen z-10 overflow-y-auto bg-background"
         >
           <div className="wrapper h-full">
             <AppShowcase />
@@ -62,7 +62,7 @@ export default function StackedSections() {
         {/* ═══ Features — sube desde abajo y tapa ═══ */}
         <motion.div
           style={{ translateY: featuresY }}
-          className="absolute top-0 left-0 right-0 h-screen z-20 overflow-hidden bg-background shadow-[0_-20px_50px_rgba(0,0,0,0.3)]"
+          className="absolute top-0 left-0 right-0 h-screen z-20 overflow-y-auto bg-background shadow-[0_-20px_50px_rgba(0,0,0,0.3)]"
         >
           <div className="wrapper h-full">
             <BoqiFeatures />

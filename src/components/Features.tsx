@@ -6,23 +6,23 @@ const features = [
     colSpan: "md:col-span-8",
     glass: true,
     textColor: "",
-    icon: "touch_app",
+    icon: "payments",
     iconColor: "bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white",
-    title: "Adiós a la Fricción del Cliente",
+    title: "Multiplicá tu Facturación",
     description:
-      "Elimine las barreras entre su servicio y sus usuarios. Interfaces diseñadas para la conversión inmediata sin pasos innecesarios.",
+      "Tus clientes reservan 24/7 sin que tengas que responder un solo mensaje. Pagos por adelantado y menos fricción para aumentar tus ingresos.",
     link: true,
     isHero: false,
   },
   {
     colSpan: "md:col-span-4",
     glass: false, // hero card — solid gradient
-    textColor: "text-white/75",
-    icon: "hub",
+    textColor: "text-white/80",
+    icon: "rocket_launch",
     iconColor: "bg-white/20 text-white",
-    title: "Control Total Multinegocio",
+    title: "Tu Negocio en Piloto Automático",
     description:
-      "Gestione múltiples sedes o verticales desde un solo panel de mando centralizado y seguro.",
+      "Delegá el trabajo manual a nuestra IA. Desde el agendamiento inteligente hasta la emisión automática de facturas electrónicas.",
     link: false,
     isHero: true,
   },
@@ -30,11 +30,11 @@ const features = [
     colSpan: "md:col-span-4",
     glass: true,
     textColor: "",
-    icon: "event_available",
+    icon: "how_to_reg",
     iconColor: "bg-success/10 text-success group-hover:bg-success group-hover:text-white",
-    title: "Automatización de Citas",
+    title: "Cero Clientes Perdidos",
     description:
-      "IA conversacional que agenda, confirma y recuerda citas de manera autónoma 24/7.",
+      "Si alguien cancela su turno, Boqi avisa automáticamente a tu lista de espera para cubrir ese espacio y no perder dinero.",
     link: false,
     isHero: false,
   },
@@ -42,11 +42,11 @@ const features = [
     colSpan: "md:col-span-8",
     glass: true,
     textColor: "",
-    icon: "query_stats",
+    icon: "insert_chart_outlined",
     iconColor: "bg-info/10 text-info group-hover:bg-info group-hover:text-white",
-    title: "Reportería en Tiempo Real",
+    title: "Control Total en tu Bolsillo",
     description:
-      "Datos precisos para decisiones estratégicas. Visualice el rendimiento de su negocio al instante.",
+      "Métricas exactas de ingresos y servicios más rentables, disponibles en tu celular en todo momento. Tomá decisiones basadas en datos.",
     chart: true,
     link: false,
     isHero: false,
@@ -54,23 +54,24 @@ const features = [
 ]
 
 const container = {
-  hidden: {},
+  hidden: { opacity: 0 },
   show: {
-    transition: { staggerChildren: 0.12 },
+    opacity: 1,
+    transition: { staggerChildren: 0.25 },
   },
 }
 
 const itemAnim = {
-  hidden: { opacity: 0, y: 40, scale: 0.97 },
+  hidden: { opacity: 0, x: -50, scale: 0.95 },
   show: {
     opacity: 1,
-    y: 0,
+    x: 0,
     scale: 1,
     transition: {
       type: "spring" as const,
-      stiffness: 100,
-      damping: 18,
-      mass: 0.8,
+      stiffness: 80,
+      damping: 15,
+      mass: 1,
     },
   },
 }
@@ -104,7 +105,10 @@ function FeatureCard({ feature, index }: { feature: (typeof features)[number]; i
               {feature.icon}
             </span>
           </div>
-          <h3 className="text-headline-sm w-full">{feature.title}</h3>
+          <h3 className="text-headline-sm w-full flex items-center justify-center gap-2">
+            {feature.title}
+            <span className="material-symbols-outlined text-success text-xl">check_circle</span>
+          </h3>
           <p
             className={`text-body-md text-on-surface-variant w-full max-w-none ${feature.textColor}`}
           >
@@ -173,7 +177,7 @@ export default function Features() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true }}
           transition={{ type: "spring", stiffness: 120, damping: 20 }}
           className="mb-lg flex items-start gap-md"
         >
@@ -193,7 +197,7 @@ export default function Features() {
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.1, margin: "-60px" }}
+          viewport={{ once: true }}
           className="bento-grid"
         >
           {features.map((feature, index) => (

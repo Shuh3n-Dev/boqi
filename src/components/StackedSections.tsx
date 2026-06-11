@@ -48,6 +48,10 @@ export default function StackedSections() {
         {/* ═══ Features — fluye naturalmente y tapa a Showcase ═══ */}
         <div
           className="relative z-20 bg-background shadow-[0_-20px_50px_rgba(0,0,0,0.3)] rounded-t-[2rem] min-h-screen py-16"
+          style={{
+            backgroundImage: "radial-gradient(circle, var(--color-outline-variant) 0.5px, var(--color-background) 0.5px)",
+            backgroundSize: "20px 20px"
+          }}
         >
           <div className="wrapper h-full">
             <BoqiFeatures />

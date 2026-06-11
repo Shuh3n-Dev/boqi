@@ -3,10 +3,10 @@ import { useEffect, useState, useRef } from "react"
 import { FloatingIcon } from "@/components/ui/floating-icon"
 
 const stats = [
-  { value: 1240, suffix: "+", label: "Clientes activos", icon: "business" },
-  { value: 18500, suffix: "+", label: "Citas agendadas", icon: "event" },
-  { value: 98, suffix: "%", label: "Satisfacción", icon: "sentiment_satisfied" },
-  { value: 15, suffix: " min", label: "Tiempo promedio de respuesta", icon: "timer" },
+  { value: 40, suffix: "+ hrs", label: "Ahorradas al mes", icon: "schedule" },
+  { value: 0, suffix: "%", label: "Ausencias por olvido", icon: "event_available" },
+  { value: 30, suffix: "%", label: "Incremento en ingresos", icon: "trending_up" },
+  { value: 10, suffix: " min", label: "Configuración inicial", icon: "bolt" },
 ]
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
@@ -50,8 +50,9 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 }
 
 const container = {
-  hidden: {},
+  hidden: { opacity: 0 },
   show: {
+    opacity: 1,
     transition: { staggerChildren: 0.12 },
   },
 }
@@ -109,7 +110,7 @@ export default function StatsBar() {
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.15, margin: "-60px" }}
+          viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-md"
         >
           {stats.map((stat, i) => (

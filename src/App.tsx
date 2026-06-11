@@ -18,7 +18,7 @@ function App() {
 
         <StackedSections />
 
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden pt-24 md:pt-32">
           <SectionBackground variant="subtle" />
           <StatsBar />
           <Features />

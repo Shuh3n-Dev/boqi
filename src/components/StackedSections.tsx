@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "motion/react"
 import AppShowcase from "./AppShowcase"
-import FeaturesSectionDemo from "./features-section-demo-3"
+import BoqiFeatures from "./BoqiFeatures"
 
 /**
  * StackedSections — Scroll-driven card overlap effect.
@@ -65,7 +65,7 @@ export default function StackedSections() {
           className="absolute top-0 left-0 right-0 h-screen z-20 overflow-hidden bg-background shadow-[0_-20px_50px_rgba(0,0,0,0.3)]"
         >
           <div className="wrapper h-full">
-            <FeaturesSectionDemo />
+            <BoqiFeatures />
           </div>
         </motion.div>
       </div>

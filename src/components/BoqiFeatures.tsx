@@ -1,5 +1,4 @@
 "use client"
-import { cn } from "@/lib/utils"
 
 /**
  * BoqiFeatures — Bento Grid de funcionalidades principales
